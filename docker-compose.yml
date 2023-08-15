@@ -57,6 +57,22 @@ services:
          - mongodb-data
       networks:
          - library-mern-api
+      
+   client:
+      restart: always
+      build:
+         context: ./client
+         dockerfile: Dockerfile.dev
+      container_name: library_mern_frontend
+      volumes:
+         - ./app/node_modules
+         - ./client:/app
+      ports:
+          - 3000:3000
+      depends_on:
+         - library-api
+      networks:
+         - library-mern-api
 
 networks:
    library-mern-api:

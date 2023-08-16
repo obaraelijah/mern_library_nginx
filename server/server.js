@@ -12,12 +12,15 @@ process.on("uncaughtException", (error) => {
     process.exit(1);
 });
 
+//Initialize the app
 const app = express();
 
 connectToDB();
 
+//enable our app to parse JSON
 app.use(express.json());
 
+//declare our PORT
 const PORT = process.env.PORT || 5000;
 
 //Mount/Create Routes
@@ -49,6 +52,7 @@ process.on("unhandledRejection", (error) => {
     console.log("Unhandled Rejection..... 💣 🔥 stopping the server....");
     console.log(error.name, error.message);
     server.close(() => {
+        // exit code 1 means that there is an issue that caused the program to exit
         process.exit(1);
     });
 });

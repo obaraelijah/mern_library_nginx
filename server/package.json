@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "A simple MERN API",
     "main": "server.js",
-    "author": "Alpha",
+    "author": "Elijah Samson",
     "license": "MIT",
     "dependencies": {
         "dotenv": "^8.2.0",
